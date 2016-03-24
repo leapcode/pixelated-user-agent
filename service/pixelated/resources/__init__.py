@@ -57,12 +57,14 @@ def handle_error_deferred(e, request):
     request.finish()
 
 
-def get_protected_static_folder():
-    return os.path.join(_get_static_folder(), 'protected')
+def get_protected_static_folder(static_folder=None):
+    static = static_folder or _get_static_folder()
+    return os.path.join(static, 'protected')
 
 
-def get_public_static_folder():
-    return os.path.join(_get_static_folder(), 'public')
+def get_public_static_folder(static_folder=None):
+    static = static_folder or _get_static_folder()
+    return os.path.join(static, 'public')
 
 
 def _get_static_folder():

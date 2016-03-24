@@ -50,10 +50,10 @@ MODE_RUNNING = 2
 
 
 class RootResource(BaseResource):
-    def __init__(self, services_factory):
+    def __init__(self, services_factory, static_folder=None):
         BaseResource.__init__(self, services_factory)
-        self._public_static_folder = get_public_static_folder()
-        self._protected_static_folder = get_protected_static_folder()
+        self._public_static_folder = get_public_static_folder(static_folder)
+        self._protected_static_folder = get_protected_static_folder(static_folder)
         self._html_template = open(os.path.join(self._protected_static_folder, 'index.html')).read()
         self._services_factory = services_factory
         self._child_resources = ChildResourcesMap()
