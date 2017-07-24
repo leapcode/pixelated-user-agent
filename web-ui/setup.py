@@ -23,12 +23,13 @@ import time
 now = datetime.datetime.now()
 timestamp = time.strftime('%Y%m%d', now.timetuple())
 
-setup(name='pixelated-www',
-      version='0.1.%s' % timestamp,
-      description='Pixelated User Agent UI',
-      author='Thoughtworks',
-      author_email='pixelated-team@thoughtworks.com',
-      url='http://pixelated-project.github.io',
+setup(name='leap.pixelated-www',
+      version='1.0beta2.%s' % timestamp,
+      description='Static Assets for the Pixelated User Agent UI',
+      author='LEAP Encryption Access Project',
+      author_email='info@leap.se',
+      url='http://github.com/leapcode/pixelated-user-agent',
+      namespace_packages=['leap'],
       packages=['pixelated_www'],
       package_data={
           '': ['404.html',

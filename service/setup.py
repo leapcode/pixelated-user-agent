@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #
-# Copyright (c) 2014 ThoughtWorks, Inc.
+# Copyright (c) 2014-2017 ThoughtWorks, Inc.
+# Copyright (c) 2017 LEAP Encryption Access Project
 #
 # Pixelated is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -28,13 +29,13 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-setup(name='pixelated-user-agent',
-      version='0.1.%s' % timestamp,
-      description='API to serve the pixelated front-end requests',
+setup(name='leap.pixelated',
+      version='1,0beta2.%s' % timestamp,
+      description='Twisted API with a RESTful service for the Pixelated front-end.',
       long_description=read('README.md'),
-      author='Thoughtworks',
-      author_email='pixelated-team@thoughtworks.com',
-      url='https://github.com/pixelated',
+      author='LEAP Encryption Access Project',
+      author_email='info@leap.se',
+      url='https://github.com/leapcode/pixelated-user-agent',
       packages=[
           'pixelated',
           'pixelated.adapter',
