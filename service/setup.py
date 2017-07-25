@@ -31,6 +31,7 @@ def read(fname):
 required = [
     'requests',  # TODO deprecate!!!
     'pyasn1',
+    'chardet',
     'whoosh',
     'twisted']
 
