@@ -1,8 +1,8 @@
 {
   "name": "pixelated-user-agent-web-ui",
-  "version": "0.0.0",
+  "version": "0.9.9",
   "description": "The front-end module for the pixelated user agent",
-  "repository": "https://github.com/pixelated-project/pixelated-user-agent",
+  "repository": "https://github.com/leapcode/pixelated-user-agent",
   "private": true,
   "devDependencies": {
     "babel": "6.5.2",
