@@ -1,0 +1,4 @@
+dependencies
+------------
+sudo apt install ruby ruby-dev
+sudo gem install compass
