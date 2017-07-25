@@ -39,6 +39,9 @@ pydist-wheel:
 	cp -r dist/* leap/pixelated_www/
 	python setup.py bdist_wheel
 
+upload:
+	python setup.py sdist bdist_wheel --universal upload  --sign -i kali@leap.se -r pypi
+
 
 all: clean compile install
 
