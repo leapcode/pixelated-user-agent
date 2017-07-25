@@ -17,6 +17,11 @@
               {{t encryptionStatus.label }}
             </span>
             {{/if}}
+            {{#if mixnetStatus}}
+            <span class="security-status__label {{ mixnetStatus.cssClass }}" data-label="{{t mixnetStatus.tooltipText }}">
+              {{t mixnetStatus.label }}
+            </span>
+            {{/if}}
         </div>
 
         <div class="mail-read-view__header-recipients">

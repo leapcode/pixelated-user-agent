@@ -43,6 +43,7 @@
     "not-encrypted-label-tooltip": "This message is not encrypted.",
     "not-signed-label-tooltip": "The sender could not be verified.",
     "signed-label-tooltip": "You are communicating with the real sender.",
+    "mixnet-label-tooltip": "This message was sent using panoramix mixnet.",
     "sending-mail": "Sending...",
     "mail-sent": "Your message was sent!",
     "mail-not-sent": "Error,  message not sent:",

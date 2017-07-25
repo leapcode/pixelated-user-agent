@@ -88,7 +88,8 @@ class LeapMail(Mail):
 
     @property
     def security_casing(self):
-        casing = dict(imprints=self._signature_information(), locks=[])
+        casing = dict(imprints=self._signature_information(), locks=[],
+                      mixnet=self._mixnet())
         if self._encrypted() == "decrypted":
             casing["locks"] = [{"state": "valid"}]
         return casing
@@ -105,6 +106,13 @@ class LeapMail(Mail):
                 return [{"state": "valid", "seal": {"validity": "valid"}}]
             else:
                 return []
+
+    def _mixnet(self):
+        mixnet = self.headers.get("X-Leap-Mixnet", "")
+        if mixnet == "":
+            return []
+
+        return [{"state": "valid", "mixnet": mixnet}]
 
     @property
     def raw(self):

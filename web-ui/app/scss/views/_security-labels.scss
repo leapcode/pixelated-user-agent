@@ -71,5 +71,11 @@
         content: "\f05e";
       }
     }
+
+    &--mixnet {
+      &:before {
+        content: "\f023";
+      }
+  }
   }
 }

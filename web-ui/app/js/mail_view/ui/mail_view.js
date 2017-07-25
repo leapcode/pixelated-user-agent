@@ -51,6 +51,7 @@ define(
         data.mail.security_casing = data.mail.security_casing || {};
         signed = this.checkSigned(data.mail);
         encrypted = this.checkEncrypted(data.mail);
+        mixnet = this.checkMixnet(data.mail);
         attachments = data.mail.attachments.map(function (attachment) {
             attachment.received = true;
             return attachment;
@@ -68,6 +69,7 @@ define(
           ident: data.mail.ident,
           tags: data.mail.tags,
           encryptionStatus: encrypted,
+          mixnetStatus: mixnet,
           signatureStatus: signed,
           attachments: attachments
         }));
@@ -184,6 +186,21 @@ define(
         }
 
         return SIGNED_FLAG;
+      };
+
+      this.checkMixnet = function(mail) {
+
+        var MIXNET_FLAG = {
+          cssClass: 'security-status__label--mixnet',
+          label: 'mixnet',
+          tooltipText: 'mixnet-label-tooltip'
+        };
+
+        if(_.any(mail.security_casing.mixnet, function(mixnet) { return mixnet.state === 'valid'; })) {
+            return MIXNET_FLAG;
+        }
+
+        return null;
       };
 
       this.isNotTrusted = function(mail){
