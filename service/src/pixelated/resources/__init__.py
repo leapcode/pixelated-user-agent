@@ -28,6 +28,9 @@ from twisted.web.http import INTERNAL_SERVER_ERROR, SERVICE_UNAVAILABLE
 log = Logger()
 
 
+STATIC = None
+
+
 class SetEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, set):
@@ -57,6 +60,11 @@ def handle_error_deferred(e, request):
     request.finish()
 
 
+def set_static_folder(static_folder):
+    global STATIC
+    STATIC = static_folder
+
+
 def get_protected_static_folder(static_folder=None):
     static = static_folder or _get_static_folder()
     return os.path.join(static, 'protected')
@@ -68,9 +76,12 @@ def get_public_static_folder(static_folder=None):
 
 
 def _get_static_folder():
-    static_folder = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", "..", "..", "web-ui", "dist"))
-    if not os.path.exists(static_folder):
-        static_folder = os.path.join('/', 'usr', 'share', 'pixelated-user-agent')
+    if not STATIC:
+        static_folder = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", "..", "..", "web-ui", "dist"))
+        if not os.path.exists(static_folder):
+            static_folder = os.path.join('/', 'usr', 'share', 'pixelated-user-agent')
+    else:
+        static_folder = STATIC
     return static_folder
 
 

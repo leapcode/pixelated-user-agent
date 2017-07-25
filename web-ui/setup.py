@@ -21,27 +21,19 @@ import datetime
 import time
 
 now = datetime.datetime.now()
-timestamp = time.strftime('%Y%m%d', now.timetuple())
+timestamp = time.strftime('%Y%m%d%H%M', now.timetuple())
 
 setup(name='leap.pixelated-www',
-      version='1.0beta2.%s' % timestamp,
+      version='1.0.%s' % timestamp,
       description='Static Assets for the Pixelated User Agent UI',
       author='LEAP Encryption Access Project',
       author_email='info@leap.se',
       url='http://github.com/leapcode/pixelated-user-agent',
+      license='GNU Affero General Public License v3 or later (AGPLv3+)',
       namespace_packages=['leap'],
-      packages=['pixelated_www'],
+      packages=['leap.pixelated_www'],
       package_data={
-          '': ['404.html',
-               'index.html',
-               'app.min.js',
-               'sandbox.html',
-               'sandbox.min.js',
-               'bower_components/jquery-file-upload/css/*',
-               'bower_components/font-awesome/css/*',
-               'bower_components/font-awesome/fonts/*',
-               'css/*',
-               'fonts/*',
-               'locales/en-us/*',
-               'locales/pt/*',
-               'locales/sv/*']})
+          '': ['protected/*',
+               'protected/css/*',
+               'protected/fonts/*',
+               'public/*']})

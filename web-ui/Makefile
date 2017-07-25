@@ -36,7 +36,7 @@ pydist-clean: clean
 
 
 pydist-wheel:
-	cp -r dist/* pixelated_www/
+	cp -r dist/* leap/pixelated_www/
 	python setup.py bdist_wheel
 
 

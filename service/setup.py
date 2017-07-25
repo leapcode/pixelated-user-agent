@@ -18,47 +18,31 @@
 
 import datetime
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 import time
 
 now = datetime.datetime.now()
-timestamp = time.strftime('%Y%m%d', now.timetuple())
+timestamp = time.strftime('%Y%m%d%H%M', now.timetuple())
 
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+required = [
+    'requests',  # TODO deprecate!!!
+    'pyasn1',
+    'whoosh',
+    'twisted']
 
 setup(name='leap.pixelated',
-      version='1,0beta2.%s' % timestamp,
+      version='1.0.%s' % timestamp,
       description='Twisted API with a RESTful service for the Pixelated front-end.',
       long_description=read('README.md'),
       author='LEAP Encryption Access Project',
       author_email='info@leap.se',
       url='https://github.com/leapcode/pixelated-user-agent',
-      packages=[
-          'pixelated',
-          'pixelated.adapter',
-          'pixelated.adapter.listeners',
-          'pixelated.adapter.model',
-          'pixelated.adapter.search',
-          'pixelated.adapter.services',
-          'pixelated.adapter.mailstore',
-          'pixelated.adapter.mailstore.maintenance',
-          'pixelated.bitmask_libraries',
-          'pixelated.config',
-          'pixelated.assets',
-          'pixelated.certificates',
-          'pixelated.support',
-          'pixelated.resources',
-          'pixelated.extensions'
-      ],
-      install_requires=[],
-      entry_points={
-          'console_scripts': [
-              'pixelated-user-agent = pixelated.application:initialize',
-              'pixelated-maintenance = pixelated.maintenance:initialize',
-              'pixelated-register = pixelated.register:initialize'
-          ]
-      },
+      license='GNU Affero General Public License v3 or later (AGPLv3+)',
+      package_dir={'': 'src'},
+      packages=find_packages('src'),
+      install_requires=required,
       include_package_data=True)
