@@ -36,6 +36,8 @@ pydist-clean: clean
 
 
 pydist-wheel:
+	mkdir -p leap/pixelated_www/
+	touch leap/pixelated_www/__init__.py
 	cp -r dist/* leap/pixelated_www/
 	python setup.py bdist_wheel
 
