@@ -59,6 +59,9 @@ $will_be_encrypted: $success;
 $wont_be_encrypted: $attention;
 $recipients_font_color: #828282;
 
+$will_be_mixed: $success;
+$unsuported_mixed: $light_gray;
+
 /* Attachments */
 $attachment_text: #555;
 $attachment_icon: lighten($attachment_text, 30);

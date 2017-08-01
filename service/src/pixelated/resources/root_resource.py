@@ -35,6 +35,7 @@ from pixelated.resources.mail_resource import MailResource
 from pixelated.resources.mails_resource import MailsResource
 from pixelated.resources.tags_resource import TagsResource
 from pixelated.resources.keys_resource import KeysResource
+from pixelated.resources.mixnet_resource import MixnetResource
 from twisted.web.resource import NoResource
 from twisted.web.static import File
 
@@ -96,6 +97,7 @@ class RootResource(BaseResource):
         self._child_resources.add('backup-account', BackupAccountResource(self._services_factory, authenticator, provider))
         self._child_resources.add('sandbox', SandboxResource(self._protected_static_folder))
         self._child_resources.add('keys', KeysResource(self._services_factory))
+        self._child_resources.add('mixnet', MixnetResource(self._services_factory))
         self._child_resources.add(AttachmentsResource.BASE_URL, AttachmentsResource(self._services_factory))
         self._child_resources.add('contacts', ContactsResource(self._services_factory))
         self._child_resources.add('features', FeaturesResource(provider))

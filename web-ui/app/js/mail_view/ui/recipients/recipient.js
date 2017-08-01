@@ -89,6 +89,25 @@ define(
         }.bind(this));
       };
 
+      this.discoverMixnet = function () {
+        var p = $.getJSON('/mixnet?search=' + this.attr.address).promise();
+        p.done(function (stat) {
+          switch (stat.status) {
+            case 'ok':
+              this.$node.find('.recipient-mixnet').addClass('mixnet');
+              break;
+            case 'unsuported':
+              this.$node.find('.recipient-mixnet').addClass('unsuported-mixnet');
+              break;
+            default:
+              this.$node.find('.recipient-mixnet').addClass('not-mixnet');
+          }
+        }.bind(this));
+        p.fail(function () {
+          this.$node.find('.recipient-mixnet').addClass('not-mixnet');
+        }.bind(this));
+      };
+
       this.getMailAddress = function() {
         return this.$node.find('input[type=hidden]').val();
       };
@@ -105,6 +124,7 @@ define(
             this.sinalizeInvalid();
         } else {
             this.discoverEncryption();
+            this.discoverMixnet();
         }
       });
     }

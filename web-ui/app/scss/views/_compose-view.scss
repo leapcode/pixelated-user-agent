@@ -344,6 +344,35 @@
                 background-color: $background_light_grey;
                 border: 1px solid $border_light_grey;
                 border-radius: 2px;
+
+                .recipient-mixnet {
+                    &:before {
+                        font-family: FontAwesome;
+                        padding-right: 6px;
+                        font-size: 1.4em;
+                    }
+
+                    &.mixnet {
+                        &:before {
+                            color: $will_be_mixed;
+                            content: "\f135";
+                        }
+                    }
+
+                    &.unsuported-mixnet {
+                        &:before {
+                            color: $unsuported_mixed;
+                            content: "\f135";
+                        }
+                    }
+
+                    &.not-mixnet {
+                        &:before {
+                            color: $unsuported_mixed;
+                            content: "";
+                        }
+                    }
+                }
             }
 
             .recipient-del {
