@@ -347,7 +347,7 @@
 
                 .recipient-mixnet {
                     &:before {
-                        font-family: FontAwesome;
+                        font-family: "whisk";
                         padding-right: 6px;
                         font-size: 1.4em;
                     }
@@ -355,14 +355,14 @@
                     &.mixnet {
                         &:before {
                             color: $will_be_mixed;
-                            content: "\f135";
+                            content: "\e010";
                         }
                     }
 
                     &.unsuported-mixnet {
                         &:before {
                             color: $unsuported_mixed;
-                            content: "\f135";
+                            content: "\e010";
                         }
                     }
 
